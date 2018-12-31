@@ -1,0 +1,10 @@
+@import "./mixins";
+
+.landing-container {
+    background-image: url('../img/presite-background.jpg');
+    @include background-setting();
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 4em 5em;
+}
