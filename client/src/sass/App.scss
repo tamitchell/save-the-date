@@ -4,20 +4,36 @@
 
 body {
   text-align: center;
+  min-height: 100vh; /* will cover the 100% of viewport */
+  display: block;
+  position: relative;
+  padding-bottom: 150px;
 }
 label {
   display: none;
 }
-h1 {
-  text-align: left;
-  font-size: 8vh;
-  font-weight: 800;
-  padding: 8px;
+header {
+  width: 100%;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  h1 {
+    font-size: 10vh;
+    font-weight: 800;
+    padding: 8px;
+  }
 }
 h5 {
   font-weight: 200;
 }
 
-.container-fluid {
-  height: 90vh;
+footer {
+  height: 150px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background-color: black;
+  div {
+    padding-top: 2em;
+  }
 }

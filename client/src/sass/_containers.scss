@@ -1,10 +1,10 @@
 @import "./mixins";
 
-.landing-container {
-    background-image: url('../img/presite-background.jpg');
+.hero-container {
+    background-image: url('../img/hero-img.jpg');
+    height: 90vh;
     @include background-setting();
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 4em 5em;
 }

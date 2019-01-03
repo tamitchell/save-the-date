@@ -38,7 +38,7 @@ export default class Navigation extends Component {
   }
   render() {
     return (
-        <Navbar className="navigation" color="light" light expand="md">
+        <Navbar className="navigation" dark expand="md">
           <NavbarBrand href="/">Save the date</NavbarBrand>
           <NavbarToggler onClick={this.navToggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
