@@ -1,10 +1,9 @@
-import * as auth from './auth'
-import * as firebase from './firebase'
+import FirebaseContext, { withFirebase } from './context';
+import Firebase from './firebase';
 
-export {
-    auth,
-    firebase
-}
+export default Firebase;
+
+export { FirebaseContext, withFirebase };
 
 //Why an index.js file? 
 //consumers (React components in our case) should be only allowed 

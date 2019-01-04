@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import {Route, Switch} from 'react-router-dom'
 import SignInPage from './SignIn';
 import PasswordForgetPage from './PasswordForget';
-import HomePage from './Home';
+import HomePage from './Home/Home';
 import AccountPage from './Account';
 import Navigation from './Navigation'
 import Footer from './Footer';
@@ -28,15 +28,15 @@ class App extends Component {
           component={HomePage}
         />
         <Route
-          exact path={routes.SIGN_IN}
+          path={routes.SIGN_IN}
           component={SignInPage}
         />
         <Route
-          exact path={routes.PASSWORD_FORGET}
+          path={routes.PASSWORD_FORGET}
           component={PasswordForgetPage}
         />
         <Route
-          exact path={routes.ACCOUNT}
+          path={routes.ACCOUNT}
           component={AccountPage}
         />
           </Switch>

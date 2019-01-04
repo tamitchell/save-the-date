@@ -13,7 +13,7 @@ import {
   DropdownItem
 } from "reactstrap";
 import { Link } from 'react-router-dom';
-import SignUpPage from './SignUp'
+import SignUpPage from './SignUp/SignUpPage'
 import * as routes from './constants/Routes';
 
 export default class Navigation extends Component {
@@ -50,8 +50,7 @@ export default class Navigation extends Component {
                   </Link>
               </NavItem>
               <NavItem>
-                <NavLink onClick={this.modalToggle}>Sign Up</NavLink>
-                <SignUpPage modal={this.state.modal} toggle={this.modalToggle}/>
+                <SignUpPage />
               </NavItem>
               <NavItem>
                   <Link to={routes.HOME}>
