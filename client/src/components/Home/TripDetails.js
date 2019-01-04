@@ -1,6 +1,7 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Container, Button } from "reactstrap";
-import SignUpForm from "../SignUp/SignUpForm";
+import SignUpForm from "../SignUp/SignUp";
+import SignIn from "../SignIn";
 
 class TripDetails extends Component {
   render() {
@@ -14,8 +15,12 @@ class TripDetails extends Component {
           <p />
         </div>
         <div>
-        <Button />
-      <SignUpForm/>
+          <Button>
+            <SignIn />
+          </Button>
+          <Button>
+            <SignUpForm />
+          </Button>
         </div>
       </div>
     );

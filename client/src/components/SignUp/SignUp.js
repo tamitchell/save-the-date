@@ -1,5 +1,8 @@
 import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { compose } from "recompose";
+import { withFirebase } from "../../firebase/context";
+import { PulseLoader } from "react-spinners";
 import * as routes from "../constants/Routes";
 import {
   Button,
@@ -12,6 +15,19 @@ import {
   ModalBody,
   ModalFooter
 } from "reactstrap";
+
+const SignUpPage = () => (
+  <div>
+    <h1>SignUp</h1>
+    <SignUpForm />
+  </div>
+);
+
+const SignUpLink = () => (
+  <p>
+    Don't have an account? <Link to={routes.SIGN_UP}>Sign Up</Link>
+  </p>
+);
 
 const byPropKey = (propertyName, value) => () => ({
   [propertyName]: value
@@ -30,6 +46,7 @@ class SignUpFormBase extends Component {
     super(props);
     this.state = {
       modal: false,
+      loading: false,
       ...INITIAL_STATE
     };
   }
@@ -41,25 +58,27 @@ class SignUpFormBase extends Component {
   };
 
   onSubmit = event => {
+    event.preventDefault();
     const { email, passwordOne } = this.state;
 
     const { history } = this.props;
 
-    this.props.firebase
-      .doSignInWithEmailAndPassword(email, passwordOne)
-      .then(authUser => {
-        this.setState({ ...INITIAL_STATE });
-        setTimeout(history.push(routes.HOME), 1000);
-      })
-      .catch(error => {
-        this.setState(byPropKey("error", error));
-      });
+    this.setState({ loading: true }, async () => {
+      this.props.firebase
+        .doCreateUserWithEmailAndPassword(email, passwordOne)
+        .then(authUser => {
+          this.setState({ ...INITIAL_STATE });
+          history.push(routes.HOME);
+        })
+        .catch(error => {
+          this.setState(byPropKey("error", error));
+        });
 
-    event.preventDefault();
+      setTimeout(this.setState({ loading: false }), 1000)
+    });
   };
 
   render() {
-    console.log(this.props);
     const {
       username,
       email,
@@ -77,7 +96,7 @@ class SignUpFormBase extends Component {
 
     return (
       <Fragment>
-        <Button onClick={this.modalToggle}>Sign Up</Button>
+        <div onClick={this.modalToggle}>Sign Up</div>
         <Modal isOpen={modal} toggle={this.modalToggle}>
           <ModalHeader toggle={this.modalToggle}>Sign Up</ModalHeader>
           <ModalBody>
@@ -133,18 +152,24 @@ class SignUpFormBase extends Component {
                 />
               </FormGroup>
               {error && <p>{error.message}</p>}
-              <Button disabled={isInvalid} type="submit">
-                Submit
-              </Button>
+              {this.state.loading === true ? (
+                <PulseLoader
+                  sizeUnit={"px"}
+                  size={10}
+                  color={"#EF522A"}
+                  loading={this.state.loading}
+                />
+              ) : (
+                <Button disabled={isInvalid} type="submit">
+                  Submit
+                </Button>
+              )}
             </Form>
           </ModalBody>
           <ModalFooter>
-            <Button color="secondary" onClick={this.props.toggle}>
+            <Button color="secondary" onClick={this.modalToggle}>
               Cancel
             </Button>
-            <p>
-              Don't have an account? <Link to={routes.SIGN_UP}>Sign Up</Link>
-            </p>
           </ModalFooter>
         </Modal>
       </Fragment>
@@ -152,4 +177,11 @@ class SignUpFormBase extends Component {
   }
 }
 
-export default SignUpFormBase;
+const SignUpForm = compose(
+  withRouter,
+  withFirebase
+)(SignUpFormBase);
+
+export default SignUpForm;
+
+export { SignUpPage, SignUpLink };

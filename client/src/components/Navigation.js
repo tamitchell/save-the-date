@@ -6,23 +6,19 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
 import { Link } from 'react-router-dom';
-import SignUpPage from './SignUp/SignUpPage'
 import * as routes from './constants/Routes';
 
 export default class Navigation extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false,
-      modal: false
-
+      isOpen: false
     };
   }
   navToggle = () => {
@@ -31,11 +27,6 @@ export default class Navigation extends Component {
     });
   }
 
-  modalToggle = () => {
-    this.setState({
-      modal: !this.state.modal
-    });
-  }
   render() {
     return (
         <Navbar className="navigation" dark expand="md">
@@ -45,16 +36,14 @@ export default class Navigation extends Component {
             <Nav className="ml-auto" navbar>
               <NavItem>
                   <Link to={routes.SIGN_IN}>
-                {/* <NavLink>Sign In</NavLink> */}
                 Sign In
                   </Link>
               </NavItem>
               <NavItem>
-                <SignUpPage />
+              <Link to={routes.SIGN_UP}> Sign Up</Link>
               </NavItem>
               <NavItem>
                   <Link to={routes.HOME}>
-                {/* <NavLink>Home</NavLink> */}
                 Home
                   </Link>
               </NavItem>

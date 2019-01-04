@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Col } from 'reactstrap';
+import { Container } from 'reactstrap';
 
 const Hero = () =>
   <Container className="hero-container" fluid={true}>
