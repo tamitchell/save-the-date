@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Container } from "reactstrap";
+import * as routes from "../constants/Routes";
 
 const Instructions = () => (
   <Container className="instructions-container" fluid={true}>
@@ -46,6 +48,7 @@ const Instructions = () => (
         Stay up-to-date by checking in on this site every once in a while for more trip details or event changes!
       </p>
     </div>
+    <p>View all rules and regulations <Link to={routes.RULES}>here.</Link> </p>
   </Container>
 );
 

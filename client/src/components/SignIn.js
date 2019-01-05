@@ -50,6 +50,7 @@ class SignInFormBase extends Component {
   }
 
   modalToggle = () => {
+    console.log("click")
     this.setState({
       modal: !this.state.modal
     });
@@ -63,7 +64,9 @@ class SignInFormBase extends Component {
       this.props.firebase
       .doSignInWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
-        this.setState({ ...INITIAL_STATE });
+        this.setState({ 
+          modal: false,
+          ...INITIAL_STATE });
         history.push(routes.HOME);
       })
       .catch(error => {
@@ -89,7 +92,7 @@ class SignInFormBase extends Component {
 
     return (
       <Fragment>
-        <div onClick={this.modalToggle}>Sign In</div>
+        <button onClick={this.modalToggle}>Sign In</button>
         <Modal isOpen={modal} toggle={this.modalToggle}>
           <ModalHeader toggle={this.modalToggle}>Sign In</ModalHeader>
           <ModalBody>

@@ -1,6 +1,8 @@
 @import "./mixins";
 @import "./navigation";
 @import "./containers";
+@import "./modal";
+@import "./button";
 
 body {
   text-align: center;
@@ -17,13 +19,19 @@ header {
   text-align: center;
   color: white;
   text-transform: uppercase;
-
 }
 h1 {
+  text-align: center;
+  text-transform: uppercase;
   color: white;
-  font-size: 10vh;
+  width: 100%;
+  font-size: calc(64px + 0.3vw);
   font-weight: 800;
   padding: 8px;
+}
+h2{
+  font-weight: 800;
+  text-transform: uppercase;
 }
 h5 {
   font-weight: 200;

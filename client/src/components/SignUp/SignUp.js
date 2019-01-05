@@ -61,21 +61,23 @@ class SignUpFormBase extends Component {
     event.preventDefault();
     const { email, passwordOne } = this.state;
 
-    const { history } = this.props;
-
-    this.setState({ loading: true }, async () => {
+    this.setState({ loading: true }, () => {
       this.props.firebase
         .doCreateUserWithEmailAndPassword(email, passwordOne)
         .then(authUser => {
-          this.setState({ ...INITIAL_STATE });
-          history.push(routes.HOME);
+          this.setState({ 
+            modal: false,
+            ...INITIAL_STATE });
+          this.props.history.push(routes.HOME);
+          
         })
         .catch(error => {
           this.setState(byPropKey("error", error));
         });
 
+      });
       setTimeout(this.setState({ loading: false }), 1000)
-    });
+      console.log("here")
   };
 
   render() {
@@ -96,7 +98,7 @@ class SignUpFormBase extends Component {
 
     return (
       <Fragment>
-        <div onClick={this.modalToggle}>Sign Up</div>
+        <button onClick={this.modalToggle}>Sign Up</button>
         <Modal isOpen={modal} toggle={this.modalToggle}>
           <ModalHeader toggle={this.modalToggle}>Sign Up</ModalHeader>
           <ModalBody>
