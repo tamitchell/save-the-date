@@ -34,7 +34,7 @@ const byPropKey = (propertyName, value) => () => ({
 });
 
 const INITIAL_STATE = {
-  username: "",
+  fullName: "",
   email: "",
   passwordOne: "",
   passwordConfirmation: "",
@@ -59,11 +59,20 @@ class SignUpFormBase extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    const { email, passwordOne } = this.state;
+    const { email, fullName, passwordOne } = this.state;
 
     this.setState({ loading: true }, () => {
       this.props.firebase
         .doCreateUserWithEmailAndPassword(email, passwordOne)
+        .then(authUser => {
+          // Create a user in your Firebase realtime database
+          return this.props.firebase
+            .user(authUser.user.uid)
+            .set({
+              fullName,
+              email,
+            });
+        })
         .then(authUser => {
           this.setState({ 
             modal: false,
@@ -82,7 +91,7 @@ class SignUpFormBase extends Component {
 
   render() {
     const {
-      username,
+      fullName,
       email,
       passwordOne,
       passwordConfirmation,
@@ -94,7 +103,7 @@ class SignUpFormBase extends Component {
       passwordOne !== passwordConfirmation ||
       passwordOne === "" ||
       email === "" ||
-      username === "";
+      fullName === "";
 
     return (
       <Fragment>
@@ -106,10 +115,10 @@ class SignUpFormBase extends Component {
               <FormGroup>
                 <Label for="fullname">Full Name</Label>
                 <Input
-                  defaultValue={username}
+                  defaultValue={fullName}
                   type="text"
                   onChange={event =>
-                    this.setState(byPropKey("username", event.target.value))
+                    this.setState(byPropKey("fullName", event.target.value))
                   }
                   placeholder="Full Name"
                   required

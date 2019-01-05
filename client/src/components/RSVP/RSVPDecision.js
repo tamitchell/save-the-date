@@ -19,18 +19,19 @@ export class RSVPDecision extends Component {
           <FormGroup>
             <input
               type="radio"
-              onChange={this.props.handleChange('isGoing')}
-              checked={this.props.handleRadioChange}
+              onChange={this.props.handleRadioChange}
+              checked={values.isGoing}
+              name="isGoingGroup"
               className="form-radio"
+              value={true}
             />
             <label htmlFor="radio-one">I'm going</label>
-          </FormGroup>
-          <FormGroup>
             <input
               type="radio"
-              onChange={this.props.handleChange('isGoing')}
-              checked={this.props.handleRadioChange}
+              onChange={this.props.handleRadioChange}
+              name="isGoingGroup"
               className="form-radio"
+              value={false}
             />
             <label htmlFor="radio-one">I'm Not Going</label>
           </FormGroup>
@@ -38,7 +39,7 @@ export class RSVPDecision extends Component {
           <Button onClick={this.props.prevStep} className="right">
             Previous
           </Button>
-          <Button onClick={this.saveAndContine} className="right">
+          <Button onClick={this.props.onSubmit} type="submit" className="right">
             Submit
           </Button>
         </FormGroup>

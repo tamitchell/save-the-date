@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
+import { compose } from "recompose";
+import { withFirebase } from "../../firebase/context";
 import RSVPForm from './RSVPForm'
 import { FormStatus } from './FormStatus'
 
@@ -8,9 +11,17 @@ class RSVPParentContainer extends Component {
     this.state = {
       step: 1,
       input: {},
-      status: null,
-      formSubmitted: null
+      status: false,
+      formSubmitted: false
     };
+  }
+
+  changeStatus = (event) => {
+    event.preventDefault();
+    this.setState({
+      status: true,
+      formSubmitted: true
+    })
   }
 
   render() {
@@ -21,14 +32,18 @@ class RSVPParentContainer extends Component {
           {formSubmitted === true ? (
             <FormStatus status={status} />
           ) : (
-            <RSVPForm
-              formSubmitted={this.state.formSubmitted}
-              onSubmit={event => this.onSubmit(event)}
+            <RSVP
+              changeStatus={this.changeStatus}
             />
           )}
         </div>
       );
   }
 }
+
+const RSVP = compose(
+  withRouter,
+  withFirebase
+)(RSVPForm);
 
 export default RSVPParentContainer

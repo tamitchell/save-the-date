@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PersonalDetails from "./PersonalDetails";
 import RSVPDecision from "./RSVPDecision";
+import firebase from "firebase";
 
 class RSVPForm extends Component {
   constructor() {
@@ -9,15 +10,31 @@ class RSVPForm extends Component {
       step: 1,
       fullName: "",
       email: "",
-      isGoing: false,
+      isGoing: {},
       phoneNumber: ""
     };
   }
 
+  getUserInfo = () => {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        firebase
+          .database()
+          .ref(`users/${user.uid}`)
+          .once("value", snap => this.setState({ ...snap.val() }));
+      }
+    });
+  };
+
+  componentDidMount() {
+    this.getUserInfo();
+  }
+
   handleRadioChange = event => {
     event.preventDefault();
-    this.setState({isGoing: !this.state.isGoing })
-    console.log(this.state.isGoing)
+    const { isGoing } = this.state;
+    isGoing[event.target.name] = event.target.value;
+    this.setState({ isGoing: isGoing });
   };
 
   handleChange = input => event => {
@@ -41,6 +58,26 @@ class RSVPForm extends Component {
     });
     event.preventDefault();
   };
+
+  onSubmit = event => {
+    event.preventDefault();
+    console.log("click");
+    const { fullName, email, phoneNumber, isGoing: isGoingGroup } = this.state;
+    const input = {
+      fullName: fullName,
+      email: email,
+      phoneNumber: phoneNumber,
+      isGoing: isGoingGroup
+    };
+    firebase.auth().onAuthStateChanged(user => {
+      firebase
+        .database()
+        .ref(`users/${user.uid}`)
+        .update(input);
+    });
+    this.props.changeStatus(event);
+  };
+
   render() {
     const { step } = this.state;
     const { fullName, email, phoneNumber } = this.state;
@@ -61,6 +98,7 @@ class RSVPForm extends Component {
             prevStep={this.prevStep}
             handleChange={this.handleChange}
             handleRadioChange={this.handleRadioChange}
+            onSubmit={this.onSubmit}
             values={values}
           />
         );
