@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, FormGroup } from "reactstrap";
+import { Button, FormGroup, Input } from "reactstrap";
 
 export class RSVPDecision extends Component {
 
@@ -17,7 +17,7 @@ export class RSVPDecision extends Component {
           <div className="form-group-wrapper">
 
           <FormGroup>
-            <input
+            <Input
               type="radio"
               onChange={this.props.handleRadioChange}
               checked={values.isGoing}
@@ -26,7 +26,7 @@ export class RSVPDecision extends Component {
               value={true}
             />
             <label htmlFor="radio-one">I'm going</label>
-            <input
+            <Input
               type="radio"
               onChange={this.props.handleRadioChange}
               name="isGoingGroup"

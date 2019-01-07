@@ -5,15 +5,11 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
+  NavItem
 } from "reactstrap";
-import { Link } from 'react-router-dom';
-import LogOut from "./SignOut"
-import * as routes from './constants/Routes';
+import { Link } from "react-router-dom";
+import LogOut from "./SignOut";
+import * as routes from "./constants/Routes";
 
 const Navigation = ({ authUser }) => (
   <div>{authUser ? <NavigationAuth /> : <NavigationNonAuth />}</div>
@@ -29,49 +25,32 @@ class NavigationAuth extends Component {
     this.setState({
       isOpen: !this.state.isOpen
     });
-  }
+  };
 
   render() {
     return (
-        <Navbar className="navigation" dark expand="md">
-          <NavbarBrand href="/">Save the date</NavbarBrand>
-          <NavbarToggler onClick={this.navToggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+      <Navbar className="navigation" dark expand="md">
+        <NavbarBrand href="/">Save the date</NavbarBrand>
+        <NavbarToggler onClick={this.navToggle} />
+        <Collapse isOpen={this.state.isOpen} navbar>
+          <Nav className="ml-auto" navbar>
+            <NavItem>Welcome</NavItem>
             <NavItem>
-              Welcome
+              <Link to={routes.HOME}>Home</Link>
             </NavItem>
-              <NavItem>
-                  <Link to={routes.HOME}>
-                Home
-                  </Link>
-              </NavItem>
-              <NavItem>
-                  <Link to={routes.RSVP}>
-                RSVP
-                  </Link>
-              </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Account
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <Link to={routes.ACCOUNT}>
-                  <DropdownItem>Credentials</DropdownItem>
-                  </Link>
-                  <Link to={routes.PASSWORD_FORGET}>
-                  <DropdownItem>Password Reset</DropdownItem>
-                  </Link>
-                  <DropdownItem divider />
-                  <DropdownItem>Delete Account</DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-              <NavItem>
-                  <LogOut />
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Navbar>
+            <NavItem>
+              <Link to={routes.RSVP}>RSVP</Link>
+            </NavItem>
+            <NavItem>
+              <Link to={routes.ACCOUNT}>Account</Link>
+            </NavItem>
+
+            <NavItem>
+              <LogOut />
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar>
     );
   }
 }
@@ -87,33 +66,29 @@ class NavigationNonAuth extends Component {
     this.setState({
       isOpen: !this.state.isOpen
     });
-  }
+  };
 
   render() {
     return (
-        <Navbar className="navigation" dark expand="md">
-          <NavbarBrand href="/">Save the date</NavbarBrand>
-          <NavbarToggler onClick={this.navToggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                  <Link to={routes.SIGN_IN}>
-                Sign In
-                  </Link>
-              </NavItem>
-              <NavItem>
+      <Navbar className="navigation" dark expand="md">
+        <NavbarBrand href="/">Save the date</NavbarBrand>
+        <NavbarToggler onClick={this.navToggle} />
+        <Collapse isOpen={this.state.isOpen} navbar>
+          <Nav className="ml-auto" navbar>
+            <NavItem>
+              <Link to={routes.SIGN_IN}>Sign In</Link>
+            </NavItem>
+            <NavItem>
               <Link to={routes.SIGN_UP}> Sign Up</Link>
-              </NavItem>
-              <NavItem>
-                  <Link to={routes.HOME}>
-                Home
-                  </Link>
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Navbar>
+            </NavItem>
+            <NavItem>
+              <Link to={routes.HOME}>Home</Link>
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar>
     );
   }
 }
 
-export default Navigation
+export default Navigation;

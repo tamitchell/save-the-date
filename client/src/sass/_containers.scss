@@ -155,3 +155,17 @@
     color: $darkgrey;
   }
 }
+
+.password-form-container {
+  max-width: 60%;
+  display: block;
+  margin: 3em auto;
+  button {
+    margin-top: 1em;
+  }
+  input {
+    max-width: 300px;
+    display: block;
+    margin: 3em auto;
+  }
+}

@@ -9,11 +9,7 @@ import {
   Form,
   FormGroup,
   Label,
-  Input,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter
+  Input
 } from "reactstrap";
 
 const SignUpPage = () => (
@@ -45,17 +41,10 @@ class SignUpFormBase extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false,
       loading: false,
       ...INITIAL_STATE
     };
   }
-
-  modalToggle = () => {
-    this.setState({
-      modal: !this.state.modal
-    });
-  };
 
   onSubmit = event => {
     event.preventDefault();
@@ -86,7 +75,6 @@ class SignUpFormBase extends Component {
 
       });
       setTimeout(this.setState({ loading: false }), 1000)
-      console.log("here")
   };
 
   render() {
@@ -95,9 +83,8 @@ class SignUpFormBase extends Component {
       email,
       passwordOne,
       passwordConfirmation,
-      error,
-      modal
-    } = this.state;
+      error
+        } = this.state;
 
     const isInvalid =
       passwordOne !== passwordConfirmation ||
@@ -107,10 +94,6 @@ class SignUpFormBase extends Component {
 
     return (
       <Fragment>
-        <button onClick={this.modalToggle}>Sign Up</button>
-        <Modal isOpen={modal} toggle={this.modalToggle}>
-          <ModalHeader toggle={this.modalToggle}>Sign Up</ModalHeader>
-          <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
                 <Label for="fullname">Full Name</Label>
@@ -176,13 +159,6 @@ class SignUpFormBase extends Component {
                 </Button>
               )}
             </Form>
-          </ModalBody>
-          <ModalFooter>
-            <Button color="secondary" onClick={this.modalToggle}>
-              Cancel
-            </Button>
-          </ModalFooter>
-        </Modal>
       </Fragment>
     );
   }

@@ -11,8 +11,8 @@ body {
   position: relative;
   padding-bottom: 150px;
 }
-label {
-  display: none;
+label:not([name=isGoingGroup]) {
+display: none;
 }
 header {
   width: 100%;

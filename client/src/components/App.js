@@ -63,7 +63,7 @@ class App extends Component {
         />
         <Route
           path={routes.ACCOUNT}
-          component={AccountPage}
+          render={(isAuth) => <AccountPage user={this.state.authUser} />}
         />
         <Route component={NotFound}/>
           </Switch>

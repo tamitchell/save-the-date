@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { compose } from "recompose";
 import { withFirebase } from "../../firebase/context";
 import RSVPForm from './RSVPForm'
@@ -25,8 +25,7 @@ class RSVPParentContainer extends Component {
   }
 
   render() {
-    let status = this.state.status;
-    let formSubmitted = this.state.formSubmitted;
+    const {status, formSubmitted} = this.state
     return (
         <div>
           {formSubmitted === true ? (

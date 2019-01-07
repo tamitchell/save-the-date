@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Container } from "reactstrap";
+import CustomizedModal from "../CustomizedModal";
 import SignUpForm from "../SignUp/SignUp";
 import SignIn from "../SignIn";
+import { SignUpLink } from "../SignUp/SignUp";
 import TravelIternary from "./TravelItenerary";
 
 class TripDetails extends Component {
@@ -25,8 +27,8 @@ class TripDetails extends Component {
           <div className="bg-text">
             <h1>Trip Details</h1>
             <p>You must be signed in to view trip details</p>
-            <SignIn />
-            <SignUpForm />
+            <CustomizedModal buttonLabel={"Login"} modalBody={<SignIn />} modalFooterAction={<SignUpLink/>}/>
+            <CustomizedModal buttonLabel={"Sign Up"} modalBody={<SignUpForm />}/>
           </div>
         )}
       </div>

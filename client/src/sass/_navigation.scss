@@ -7,7 +7,7 @@
     color: white;
   }
   li {
-    border: 1px solid red;
+    text-transform: uppercase;
     padding: 0.3em;
     display: block;
     min-width: 100px;
@@ -16,8 +16,5 @@
     .nav-item {
       color: white;
     }
-  }
-  .nav-link {
-      
   }
 }

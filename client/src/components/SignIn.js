@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { compose } from "recompose";
 import { withFirebase } from "../firebase/context";
@@ -9,17 +9,14 @@ import {
   Form,
   FormGroup,
   Label,
-  Input,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter
+  Input
 } from "reactstrap";
 
 const SignInPage = () => (
   <div>
-    <h1>SignIn</h1>
+    <h2>Sign In</h2>
     <SignInForm />
+    <SignUpLink />
   </div>
 );
 
@@ -43,19 +40,10 @@ class SignInFormBase extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false,
       loading: false,
       ...INITIAL_STATE
     };
   }
-
-  modalToggle = () => {
-    console.log("click")
-    this.setState({
-      modal: !this.state.modal
-    });
-  };
-
   onSubmit = event => {
     const { email, passwordOne } = this.state;
     const { history } = this.props;
@@ -82,8 +70,7 @@ class SignInFormBase extends Component {
     const {
       email,
       passwordOne,
-      error,
-      modal
+      error
     } = this.state;
 
     const isInvalid =
@@ -91,11 +78,6 @@ class SignInFormBase extends Component {
       email === ""
 
     return (
-      <Fragment>
-        <button onClick={this.modalToggle}>Sign In</button>
-        <Modal isOpen={modal} toggle={this.modalToggle}>
-          <ModalHeader toggle={this.modalToggle}>Sign In</ModalHeader>
-          <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
                 <Label for="email">Email</Label>
@@ -135,15 +117,6 @@ class SignInFormBase extends Component {
                 </Button>
               )}
             </Form>
-          </ModalBody>
-          <ModalFooter>
-            <SignUpLink />
-            <Button color="secondary" onClick={this.modalToggle}>
-              Cancel
-            </Button>
-          </ModalFooter>
-        </Modal>
-      </Fragment>
     );
   }
 }
