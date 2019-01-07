@@ -6,8 +6,8 @@ import * as ROUTES from "./constants/Routes";
 import { FormStatus } from "./RSVP/FormStatus";
 
 const PasswordForgetPage = () => (
-  <div>
-    <h1>PasswordForget</h1>
+  <div className="acct-form-container">
+    <h2>Reset Your Password</h2>
     <PasswordForgetForm />
   </div>
 );
@@ -53,7 +53,7 @@ class PasswordForgetFormBase extends Component {
       {formSubmitted === true ? (
         <FormStatus status={status} />
       ) : (
-      <Form className="password-form-container" onSubmit={this.onSubmit}>
+      <Form className="acct-form-container" onSubmit={this.onSubmit}>
       <h2>Password Reset Request</h2>
         <p>In order to reset your password, we need to verify your email.</p>
         <Input

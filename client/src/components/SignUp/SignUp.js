@@ -13,8 +13,8 @@ import {
 } from "reactstrap";
 
 const SignUpPage = () => (
-  <div>
-    <h1>SignUp</h1>
+  <div className="acct-form-container">
+    <h2>Create an Account</h2>
     <SignUpForm />
   </div>
 );

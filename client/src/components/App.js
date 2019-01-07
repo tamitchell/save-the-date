@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { withFirebase } from '../firebase/index';
 import {Route, Switch} from 'react-router-dom'
-import SignInPage from './SignIn';
+import {SignInPage} from './SignIn';
 import { SignUpPage } from './SignUp/SignUp';
 import PasswordForgetPage from './PasswordForget';
 import HomePage from './Home/Home';
