@@ -42,6 +42,9 @@ class NavigationAuth extends Component {
               <Link to={routes.RSVP}>RSVP</Link>
             </NavItem>
             <NavItem>
+              <Link to={routes.ADMIN}>Admin</Link>
+            </NavItem>
+            <NavItem>
               <Link to={routes.ACCOUNT}>Account</Link>
             </NavItem>
 

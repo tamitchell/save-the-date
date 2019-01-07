@@ -9,6 +9,7 @@ import AccountPage from './Account';
 import Navigation from './Navigation';
 import RSVPFORM from "./RSVP/RSVPParentContainer";
 import Footer from './Footer';
+import Admin from "./Admin";
 import * as routes from './constants/Routes';
 import NotFound from './404Error'
 import '../sass/App.scss'
@@ -61,6 +62,7 @@ class App extends Component {
           path={routes.PASSWORD_FORGET}
           component={PasswordForgetPage}
         />
+        <Route path={routes.ADMIN} component={Admin} />
         <Route
           path={routes.ACCOUNT}
           render={(isAuth) => <AccountPage user={this.state.authUser} />}

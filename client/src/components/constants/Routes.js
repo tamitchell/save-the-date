@@ -9,3 +9,4 @@ export const ACCOUNT = "/account";
 export const DELETE_ACCT = "/delete_account";
 export const PASSWORD_FORGET = "/pw-forget";
 export const PASSWORD_UPDATE = "/pw-update";
+export const ADMIN = "/admin";
