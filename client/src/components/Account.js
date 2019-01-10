@@ -2,8 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import * as routes from "./constants/Routes"
 import { Container } from "reactstrap";
+import { AuthUserContext, withAuthorization } from './Session';
 
-const Account = (props) => (
+const Account = () => (
+  <AuthUserContext.Consumer>
+    {authUser => (
+
   <Container className="accnt-container">
     <h2>Account</h2>
     <div>
@@ -18,6 +22,12 @@ const Account = (props) => (
       </p>
     </div>
   </Container>
+
+    )}
+  </AuthUserContext.Consumer>
 );
 
-export default Account;
+const condition = authUser => !!authUser;
+
+
+export default withAuthorization(condition)(Account);

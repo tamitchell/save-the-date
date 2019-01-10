@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { compose } from "recompose";
 import { withFirebase } from "../../firebase/context";
-import RSVPForm from './RSVPForm'
 import { FormStatus } from './FormStatus'
+import RSVPForm from './RSVPForm'
+import  withAuthorization from "../Session/withAuthorization";
 
 class RSVPParentContainer extends Component {
   constructor() {
@@ -45,4 +46,7 @@ const RSVP = compose(
   withFirebase
 )(RSVPForm);
 
-export default RSVPParentContainer
+const condition = authUser => !!authUser;
+
+
+export default withAuthorization(condition)(RSVPParentContainer)

@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import { withFirebase } from '../firebase/index';
 import {Route, Switch} from 'react-router-dom'
 import {SignInPage} from './SignIn';
 import { SignUpPage } from './SignUp/SignUp';
@@ -13,38 +12,15 @@ import Admin from "./Admin";
 import * as routes from './constants/Routes';
 import NotFound from './404Error'
 import '../sass/App.scss'
+import { withAuthentication } from './Session/withAuthentication';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      authUser: null,
-    };
-  }
-
-  componentDidMount() {
-    this.listener = this.props.firebase.auth.onAuthStateChanged(
-      authUser => {
-        authUser
-          ? this.setState({ authUser })
-          : this.setState({ authUser: null });
-      },
-    );
-  }
-
-  componentWillUnmount() {
-    this.listener();
-  }
-
-  render() {
-      return (
+const App = () => (
         <Fragment>
-          <Navigation authUser={this.state.authUser} />
+          <Navigation />
           <Switch>
           <Route
           exact path={routes.HOME}
-          render={(isAuth) => <HomePage isAuth={this.state.authUser}/>}
+          component={HomePage}
         />
         <Route
           path={routes.SIGN_IN}
@@ -65,14 +41,12 @@ class App extends Component {
         <Route path={routes.ADMIN} component={Admin} />
         <Route
           path={routes.ACCOUNT}
-          render={(isAuth) => <AccountPage user={this.state.authUser} />}
+          component={AccountPage}
         />
         <Route component={NotFound}/>
           </Switch>
         <Footer />
         </Fragment>
       );
-  }
-}
-
-export default withFirebase(App);
+      
+export default withAuthentication(App);

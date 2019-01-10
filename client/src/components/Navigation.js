@@ -8,11 +8,15 @@ import {
   NavItem
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import { AuthUserContext } from "./Session/index";
 import LogOut from "./SignOut";
 import * as routes from "./constants/Routes";
 
-const Navigation = ({ authUser }) => (
-  <div>{authUser ? <NavigationAuth /> : <NavigationNonAuth />}</div>
+const Navigation = () => (
+  <div><AuthUserContext.Consumer>
+  {authUser => authUser ? <NavigationAuth /> : <NavigationNonAuth />}
+  </AuthUserContext.Consumer>
+  </div>
 );
 class NavigationAuth extends Component {
   constructor(props) {
