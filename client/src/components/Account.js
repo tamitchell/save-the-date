@@ -23,9 +23,7 @@ class Account extends React.Component {
           firebase
             .database()
             .ref(`users/${user.uid}`)
-            .once("value", snap => {
-              console.log(snap.val())
-               this.setState({ ...snap.val() })});
+            .once("value", snap => this.setState({ ...snap.val() }));
         }
       });
       return userObj

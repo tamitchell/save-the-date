@@ -34,6 +34,7 @@ const INITIAL_STATE = {
   email: "",
   passwordOne: "",
   passwordConfirmation: "",
+  isAdmin: false,
   error: null
 };
 
