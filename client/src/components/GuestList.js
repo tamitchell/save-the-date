@@ -6,7 +6,7 @@ const GuestList = (props) =>  {
     console.log(props.guests)
     
     let guestList = props.guests.map((user, i) => {
-        return <tr scope="row" key={i}>
+        return <tr key={i}>
         {i}
         <td>{user.fullName}</td>
         <td>{user.email}</td>

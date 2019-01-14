@@ -4,12 +4,12 @@ import Instructions from "./Instructions";
 import FlightInfo from "./FlightInfo";
 import TripDetails from "./TripDetails";
 
-const Home = (props) => (
+const Home = () => (
   <Fragment>
     <Hero />
     <Instructions />
     <FlightInfo />
-    <TripDetails isAuth={props.isAuth} />
+    <TripDetails/>
   </Fragment>
 );
 
