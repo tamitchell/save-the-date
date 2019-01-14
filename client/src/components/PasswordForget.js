@@ -54,7 +54,6 @@ class PasswordForgetFormBase extends Component {
         <FormStatus status={status} />
       ) : (
       <Form className="acct-form-container" onSubmit={this.onSubmit}>
-      <h2>Password Reset Request</h2>
         <p>In order to reset your password, we need to verify your email.</p>
         <Input
           name="email"
