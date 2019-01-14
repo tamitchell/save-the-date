@@ -11,10 +11,11 @@ import { Link } from "react-router-dom";
 import { AuthUserContext } from "./Session/index";
 import LogOut from "./SignOut";
 import * as routes from "./constants/Routes";
+import { auth } from "firebase";
 
 const Navigation = () => (
   <div><AuthUserContext.Consumer>
-  {authUser => authUser ? <NavigationAuth /> : <NavigationNonAuth />}
+  {authUser => authUser ? <NavigationAuth authUser={authUser} /> : <NavigationNonAuth />}
   </AuthUserContext.Consumer>
   </div>
 );
@@ -45,9 +46,9 @@ class NavigationAuth extends Component {
             <NavItem>
               <Link to={routes.RSVP}>RSVP</Link>
             </NavItem>
-            <NavItem>
+            {/* <NavItem>
               <Link to={routes.ADMIN}>Admin</Link>
-            </NavItem>
+            </NavItem> */}
             <NavItem>
               <Link to={routes.ACCOUNT}>Account</Link>
             </NavItem>

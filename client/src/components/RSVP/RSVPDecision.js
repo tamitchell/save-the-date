@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, FormGroup, Input } from "reactstrap";
+import { Button, FormGroup, Input , Label} from "reactstrap";
 
 export class RSVPDecision extends Component {
 
@@ -11,12 +11,12 @@ export class RSVPDecision extends Component {
   render() {
       const { values } = this.props
     return (
-      <fieldset>
-        <FormGroup>
+        <FormGroup className="label-display">
             <h5>Hi {values.fullName}, are you attending this trip?</h5>
-          <div className="form-group-wrapper">
 
           <FormGroup>
+            <Label htmlFor="radio-one">
+            I'm going
             <Input
               type="radio"
               onChange={this.props.handleRadioChange}
@@ -25,7 +25,9 @@ export class RSVPDecision extends Component {
               className="form-radio"
               value={true}
             />
-            <label htmlFor="radio-one">I'm going</label>
+            </Label>
+            <Label htmlFor="radio-one">
+            I'm Not Going
             <Input
               type="radio"
               onChange={this.props.handleRadioChange}
@@ -33,9 +35,8 @@ export class RSVPDecision extends Component {
               className="form-radio"
               value={false}
             />
-            <label htmlFor="radio-one">I'm Not Going</label>
+            </Label>
           </FormGroup>
-          </div>
           <Button onClick={this.props.prevStep} className="right">
             Previous
           </Button>
@@ -43,7 +44,6 @@ export class RSVPDecision extends Component {
             Submit
           </Button>
         </FormGroup>
-      </fieldset>
     );
   }
 }

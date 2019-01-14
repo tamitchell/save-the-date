@@ -5,10 +5,9 @@ import { withFirebase } from "../../firebase/index";
 import AuthUserContext from "./context";
 import * as ROUTES from "../constants/Routes";
 
-const condition = authUser => authUser.role === "ADMIN";
 
 const withAuthorization = condition => Component => {
-  class withAuthorization extends Component {
+  class withAuthorization extends React.Component {
     componentDidMount() {
       this.listener = this.props.firebase.auth.onAuthStateChanged(authUser => {
         if (!condition(authUser)) {
