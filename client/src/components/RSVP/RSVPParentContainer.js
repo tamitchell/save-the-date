@@ -5,6 +5,7 @@ import { withFirebase } from "../../firebase/context";
 import { FormStatus } from './FormStatus'
 import RSVPForm from './RSVPForm'
 import  withAuthorization from "../Session/withAuthorization";
+import withEmailVerification from "../Session/withEmailVerification";
 
 class RSVPParentContainer extends Component {
   constructor() {
@@ -49,4 +50,8 @@ const RSVP = compose(
 const condition = authUser => !!authUser;
 
 
-export default withAuthorization(condition)(RSVPParentContainer)
+export default compose(
+  withEmailVerification,
+  withAuthorization(condition),
+  withFirebase,
+)(RSVP);

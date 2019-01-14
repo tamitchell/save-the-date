@@ -1,8 +1,11 @@
 import React, {Component} from "react";
-import { withFirebase } from '../firebase/index';
 import GuestList from "./GuestList";
 import { PulseLoader } from "react-spinners";
 import { Container } from "reactstrap";
+import  {withAuthorization, withEmailVerification} from "./Session";
+import { compose } from 'recompose';
+import * as roles from "./constants/Roles"
+import { withFirebase } from "../firebase";
 
 class Admin extends Component {
       constructor(props) {
@@ -56,4 +59,11 @@ class Admin extends Component {
       }
     }
     
-    export default withFirebase(Admin);
+  const condition = authUser =>
+  authUser && authUser.roles.includes(roles.ADMIN);
+
+  export default compose(
+    withEmailVerification,
+    withAuthorization(condition),
+    withFirebase
+  )(Admin)
