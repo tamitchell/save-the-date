@@ -11,13 +11,11 @@ import { Link } from "react-router-dom";
 import { AuthUserContext } from "./Session/index";
 import LogOut from "./SignOut";
 import * as routes from "./constants/Routes";
-import * as roles from "./constants/Roles";
 
 const Navigation = () => (
-  <div>
-    <AuthUserContext.Consumer>
-      {authUser => (authUser ? <NavigationAuth authUser={authUser}/> : <NavigationNonAuth />)}
-    </AuthUserContext.Consumer>
+  <div><AuthUserContext.Consumer>
+  {authUser => authUser ? <NavigationAuth authUser={authUser} /> : <NavigationNonAuth />}
+  </AuthUserContext.Consumer>
   </div>
 );
 class NavigationAuth extends Component {
@@ -49,11 +47,17 @@ class NavigationAuth extends Component {
             <NavItem>
               <Link to={routes.RSVP}>RSVP</Link>
             </NavItem>
+<<<<<<< HEAD
             {authUser.roles.includes(roles.ADMIN) && (
               <NavItem>
                 <Link to={routes.ADMIN}>Admin</Link>
               </NavItem>
             )}
+=======
+            {/* <NavItem>
+              <Link to={routes.ADMIN}>Admin</Link>
+            </NavItem> */}
+>>>>>>> 32fcbb0
             <NavItem>
               <Link to={routes.ACCOUNT}>Account</Link>
             </NavItem>

@@ -29,7 +29,7 @@ class RSVPParentContainer extends Component {
   render() {
     const {status, formSubmitted} = this.state
     return (
-        <div>
+        <div className="acct-form-container">
           {formSubmitted === true ? (
             <FormStatus status={status} />
           ) : (

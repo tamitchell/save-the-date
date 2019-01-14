@@ -168,4 +168,39 @@
     display: block;
     margin: 3em auto;
   }
+  .label-display {
+    label {
+      display: inline-block;
+      width: 40%;
+      height: 40px;
+      margin-top: 3em;
+      position: relative;
+      input {
+        margin: 0;
+        max-width: 20px;
+      }
+      .form-check-input {
+        position: absolute;
+        top: -13px;
+        left: 40px;
+        width: 50px;
+        height: 50px;
+      }
+    }
+    button {
+      margin: 0 4em;
+    }
+  }
+}
+
+.GOING {
+  font-size: 3vmax;
+  font-weight: 800;
+  color: green;
+}
+
+.NOT-GOING {
+  font-size: 3vmax;
+  font-weight: 800;
+  color: red;
 }
