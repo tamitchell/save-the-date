@@ -116,6 +116,9 @@ class SignInFormBase extends Component {
                   Submit
                 </Button>
               )}
+              <br />
+              <Link to={routes.PASSWORD_FORGET}>Forgot your password?</Link> 
+
             </Form>
     );
   }
