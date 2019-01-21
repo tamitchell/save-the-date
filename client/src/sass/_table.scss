@@ -1,0 +1,19 @@
+table {
+  max-width: 70%;
+  th {
+      width: 40%;
+  }
+  td {
+      text-align: left;
+  }
+  thead {
+    tr {
+      td {
+        min-width: 100%;
+      }
+    }
+  }
+  @media (max-width: 600px) {
+    max-width: 100%;
+  }
+}

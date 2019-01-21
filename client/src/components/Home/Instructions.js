@@ -15,8 +15,8 @@ const Instructions = () => (
         alt="Number one in a circle"
       />
       <img src={require("../../img/icons/trip-details.png")} alt="Airplane " />
-      <h6>Read trip details</h6>
-      <p>Login. Sign up. Read trip details. It's as simple as that!</p>
+      <h6>Read the details</h6>
+      <p>Login. Sign up. Read party and trip details. It's as simple as that!</p>
     </div>
     <div>
       <img
@@ -29,7 +29,7 @@ const Instructions = () => (
       />
       <h6>RSVP (or not)</h6>
       <p>
-        Decide whether or not you want to be RSVP'd to the trip or not. Beware:
+        Decide whether or not you want to be RSVP'd to the party or not. Beware:
         if you sign in and then decide you want to un-RSVP, you will not be able
         to reserve your space again.
       </p>
@@ -45,7 +45,7 @@ const Instructions = () => (
       />
       <h6>Stay updated!</h6>
       <p>
-        Stay up-to-date by checking in on this site every once in a while for more trip details or event changes!
+        Stay up-to-date by checking in on this site every once in a while for more party details or event changes! Remember RSVP officially ends on June 10th, 2019.
       </p>
     </div>
     <p>View all rules and regulations <Link to={routes.RULES}>here.</Link> </p>

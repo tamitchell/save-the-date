@@ -20,7 +20,6 @@ const TripDetails = () => (
         </Container>
           <Container className="itenerary-container">
             <TravelIternary />
-            <p>On Mobile? Download the full PDF version <a href="#" download>here.</a></p>
           </Container>
           </div>
         ) : (
@@ -33,8 +32,8 @@ const TripDetails = () => (
           />
         </Container>
           <div className="bg-text">
-            <h1>Trip Details</h1>
-            <p>You must be signed in to view trip details</p>
+            <h1>Party Details</h1>
+            <p>You must be signed in to view party details</p>
             <CustomizedModal buttonLabel={"Login"} modalBody={<SignIn />} modalFooterAction={<SignUpLink/>}/>
             <CustomizedModal buttonLabel={"Sign Up"} modalBody={<SignUpForm />}/>
           </div>
