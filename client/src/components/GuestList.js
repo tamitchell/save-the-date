@@ -2,10 +2,6 @@ import React from "react";
 
 import { Table } from "reactstrap";
 
-function removeUser() {
-  
-}
-
 const GuestList = (props) =>  {
     console.log(props.guests)
     

@@ -48,7 +48,7 @@ const Instructions = () => (
         Stay up-to-date by checking in on this site every once in a while for more party details or event changes! Remember RSVP officially ends on June 10th, 2019.
       </p>
     </div>
-    <p>View all rules and regulations <Link to={routes.RULES}>here.</Link> </p>
+    <p>Make an  <Link to={routes.RSVP}>RSVP</Link> here. </p>
   </Container>
 );
 
