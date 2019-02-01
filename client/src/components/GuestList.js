@@ -2,6 +2,10 @@ import React from "react";
 
 import { Table } from "reactstrap";
 
+function removeUser() {
+  
+}
+
 const GuestList = (props) =>  {
     console.log(props.guests)
     
@@ -12,6 +16,7 @@ const GuestList = (props) =>  {
         <td>{user.email}</td>
         <td>{user.phoneNumber}</td>
         <td>{user.isGoing.isGoingGroup === "true" ?  "Yes" : "No" }</td>
+        <td>{console.log(user.guests)}{user.guests === null || user.guests === undefined ? "NOT SET" : user.guests}</td>
         </tr>
     })
       return (
@@ -23,6 +28,8 @@ const GuestList = (props) =>  {
               <th>Email</th>
               <th>Phone Number</th>
               <th>RSVP</th>
+              <th>No. of Guests</th>
+              <th>Remove</th>
             </tr>
           </thead>
           <tbody>

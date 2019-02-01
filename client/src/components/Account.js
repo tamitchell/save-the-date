@@ -13,7 +13,8 @@ class Account extends React.Component {
     super()
     this.state = {
       isGoing: "",
-      fullName: ""
+      fullName: "",
+      guests: 0
     }
   }
   getUserInfo = () => {
@@ -34,8 +35,7 @@ class Account extends React.Component {
   }
 
   render(){
-    const {fullName, isGoing} = this.state
-    console.log(isGoing.isGroup)
+    const {fullName, isGoing, guests} = this.state
     return(
 
     <AuthUserContext.Consumer>
@@ -44,8 +44,9 @@ class Account extends React.Component {
     <Container className="acct-form-container">
       <h2>Account</h2>
       <div>
-        <p>{fullName}, here is your current status regarding the 2019 New Orleans Trip:</p>
+        <p>{fullName}, here is your current status regarding the birthday party:</p>
         <p className={isGoing.isGoingGroup === "true" ? "GOING":"NOT-GOING"}>{isGoing.isGoingGroup === "true" ? "GOING":"NOT GOING"}</p>
+        <p>with {guests} {guests === 1 ? "guest" : "guests"} coming.</p>
         <p>If you would like to change your decision, visit this <Link to={routes.RSVP}>link</Link>.</p>
       </div>
       <div>

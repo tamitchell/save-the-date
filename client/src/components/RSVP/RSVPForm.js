@@ -11,6 +11,7 @@ class RSVPForm extends Component {
       fullName: "",
       email: "",
       isGoing: {},
+      guests: 0,
       phoneNumber: ""
     };
   }
@@ -62,12 +63,13 @@ class RSVPForm extends Component {
   onSubmit = event => {
     event.preventDefault();
     console.log("click");
-    const { fullName, email, phoneNumber, isGoing: isGoingGroup } = this.state;
+    const { fullName, email, phoneNumber, isGoing: isGoingGroup, guests } = this.state;
     const input = {
       fullName: fullName,
       email: email,
       phoneNumber: phoneNumber,
-      isGoing: isGoingGroup
+      isGoing: isGoingGroup,
+      guests: guests
     };
     firebase.auth().onAuthStateChanged(user => {
       firebase
@@ -80,8 +82,8 @@ class RSVPForm extends Component {
 
   render() {
     const { step } = this.state;
-    const { fullName, email, phoneNumber } = this.state;
-    const values = { fullName, email, phoneNumber };
+    const { fullName, email, phoneNumber, guests } = this.state;
+    const values = { fullName, email, phoneNumber, guests };
     switch (step) {
       case 1:
         return (

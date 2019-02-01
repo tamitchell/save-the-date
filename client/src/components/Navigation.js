@@ -15,8 +15,8 @@ import * as routes from "./constants/Routes";
 const Navigation = () => (
   <div>
     <AuthUserContext.Consumer>
-  {authUser => authUser ? <NavigationAuth /> : <NavigationNonAuth />}
-  </AuthUserContext.Consumer>
+      {authUser => (authUser ?  <NavigationAuth email={authUser.email}/> : <NavigationNonAuth />)}
+    </AuthUserContext.Consumer>
   </div>
 );
 class NavigationAuth extends Component {
@@ -32,6 +32,16 @@ class NavigationAuth extends Component {
     });
   };
 
+  displayAdmin = () => {
+    if (process.env.REACT_APP_ADMIN.includes(this.props.email)) {
+      return (
+        <NavItem>
+          <Link to={routes.ADMIN}>Admin</Link>
+        </NavItem>
+      );
+    }
+  };
+
   render() {
     return (
       <Navbar className="navigation" dark expand="md">
@@ -39,16 +49,13 @@ class NavigationAuth extends Component {
         <NavbarToggler onClick={this.navToggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
-            <NavItem>Welcome</NavItem>
             <NavItem>
               <Link to={routes.HOME}>Home</Link>
             </NavItem>
             <NavItem>
               <Link to={routes.RSVP}>RSVP</Link>
             </NavItem>
-            {/* <NavItem>
-              <Link to={routes.ADMIN}>Admin</Link>
-            </NavItem> */}
+            {this.displayAdmin()}
             <NavItem>
               <Link to={routes.ACCOUNT}>Account</Link>
             </NavItem>
