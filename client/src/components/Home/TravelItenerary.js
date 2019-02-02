@@ -13,7 +13,7 @@ const TravelItenerary = () => (
       <tr>
         <td colSpan="2">
         <h2>
-          Dana's 50th Birthday Party Details</h2>
+          Birthday Party Details</h2>
         <img src={require("../../img/sax_man.svg")} alt="Man with saxophone" />
 
           </td>

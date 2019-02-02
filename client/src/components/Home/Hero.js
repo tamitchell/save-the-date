@@ -4,8 +4,8 @@ import { Container } from 'reactstrap';
 const Hero = () =>
   <Container className="hero-container" fluid={true}>
       <header>
-      <h1>Let the good time's roll</h1>
-      <p>in New Orleans</p>
+      <h1>Save the Date!</h1>
+      <h3>Aunt Dana's 50th Birthday Party</h3>
       </header>
   </Container>
 

@@ -41,6 +41,6 @@ const TripDetails = () => (
         )}
       </AuthUserContext.Consumer>
   </div>
-    );
+    )
 
 export default TripDetails;
