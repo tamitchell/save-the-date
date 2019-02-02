@@ -46,7 +46,7 @@ class Account extends React.Component {
       <div>
         <p>{fullName}, here is your current status regarding the birthday party:</p>
         <p className={isGoing.isGoingGroup === "true" ? "GOING":"NOT-GOING"}>{isGoing.isGoingGroup === "true" ? "GOING":"NOT GOING"}</p>
-        <p>with {guests} {guests === 1 ? "guest" : "guests"} coming.</p>
+        <p>with {guests} {guests == 1 ? "guest" : "guests"} coming.</p>
         <p>If you would like to change your decision, visit this <Link to={routes.RSVP}>link</Link>.</p>
       </div>
       <div>

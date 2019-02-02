@@ -1,0 +1,384 @@
+.navigation {
+  position: -webkit-sticky;
+  position: sticky;
+  height: auto;
+  background-color: black;
+  color: white;
+}
+
+.navigation a {
+  color: white;
+}
+
+.navigation li {
+  text-transform: uppercase;
+  padding: 0.3em;
+  display: block;
+  min-width: 100px;
+  height: 50px;
+  line-height: 35px;
+}
+
+.navigation li .nav-item {
+  color: white;
+}
+
+.clearfix::after, .instructions-container div img:nth-of-type(2) {
+  content: "";
+  clear: both;
+}
+
+.hero-container {
+  background-image: url("../img/hero-img.jpg");
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.instructions-container {
+  background-color: #FDFAF5;
+  height: auto !important;
+  padding: 4em;
+}
+
+.instructions-container img {
+  width: 120px;
+}
+
+.instructions-container h5 {
+  font-weight: bolder;
+  margin-top: 2em;
+  margin-bottom: 4em;
+}
+
+.instructions-container div {
+  display: inline-block;
+  vertical-align: middle;
+  width: 50%;
+  max-width: 300px;
+  min-width: 250px;
+  height: 50%;
+  max-height: 300px;
+  min-height: 300px;
+  margin: 1em;
+  padding: 0.5em;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.instructions-container div img:nth-of-type(1) {
+  width: 24px;
+  float: left;
+}
+
+.instructions-container div img:nth-of-type(2) {
+  max-width: 100px;
+  display: block;
+  margin: 0 auto;
+}
+
+.instructions-container div h6 {
+  font-weight: bold;
+}
+
+.instructions-container div p {
+  font-size: calc(12px + 0.3vw);
+}
+
+.flightinfo-container {
+  background-color: #383838;
+  text-align: left;
+  text-transform: uppercase;
+  height: 100% !important;
+  min-height: 400px;
+  padding: 3em;
+}
+
+.flightinfo-container h2 {
+  color: white;
+  font-size: 3.5vmax;
+}
+
+.flightinfo-container h4 {
+  font-weight: 700;
+  color: #EF522A;
+}
+
+.flightinfo-container img {
+  float: right;
+  opacity: 0.5;
+  max-width: 800px;
+}
+
+.trip-container {
+  height: 100vh;
+  position: relative;
+}
+
+.trip-container .bg-image {
+  background-color: #CB913D;
+  position: relative;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  padding: 0;
+}
+
+.trip-container .bg-image img {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: 50%;
+  min-width: 100%;
+  height: 100%;
+  max-width: none;
+}
+
+.trip-container .bg-image .blur {
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+}
+
+.trip-container .bg-text {
+  color: white;
+  padding: 3em;
+}
+
+.trip-container .bg-text h1,
+.trip-container .bg-text p {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.trip-container .bg-text h1 {
+  top: 40%;
+  z-index: 2;
+}
+
+.trip-container .bg-text p {
+  top: 52%;
+}
+
+.trip-container .itenerary-container {
+  background-color: #FDFAF5;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: 50%;
+  z-index: 2;
+  padding: 2em;
+  min-height: 500px;
+}
+
+.trip-container .itenerary-container img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  width: 40%;
+}
+
+@media (max-width: 600px) {
+  .trip-container .itenerary-container img {
+    display: none;
+  }
+}
+
+.trip-container button {
+  width: 40%;
+  max-width: 250px;
+  height: 50px;
+  border-radius: 50px;
+  position: absolute;
+  top: 60%;
+  left: 65%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #EF522A;
+  border: none;
+  font-weight: bolder;
+  text-transform: uppercase;
+  color: white;
+}
+
+.trip-container button:nth-of-type(1) {
+  left: 35%;
+  background-color: white;
+  color: #383838;
+}
+
+.acct-form-container {
+  max-width: 60%;
+  display: block;
+  margin: 3em auto;
+}
+
+.acct-form-container button {
+  margin-top: 1em;
+}
+
+.acct-form-container input {
+  max-width: 300px;
+  display: block;
+  margin: 3em auto;
+}
+
+.acct-form-container .label-display label {
+  display: inline-block;
+  width: 40%;
+  height: 40px;
+  margin-top: 3em;
+  position: relative;
+}
+
+.acct-form-container .label-display label input {
+  margin: 0;
+  max-width: 20px;
+}
+
+.acct-form-container .label-display label .form-check-input {
+  position: absolute;
+  top: -13px;
+  left: 40px;
+  width: 50px;
+  height: 50px;
+}
+
+.acct-form-container .label-display button {
+  margin: 0 4em;
+}
+
+.GOING {
+  font-size: 3vmax;
+  font-weight: 800;
+  color: green;
+}
+
+.NOT-GOING {
+  font-size: 3vmax;
+  font-weight: 800;
+  color: red;
+}
+
+.error-container {
+  width: 100%;
+  height: 100%;
+}
+
+.error-container h2 {
+  font-size: calc(64px + 0.3vw);
+  margin-top: 1em;
+}
+
+.error-container img {
+  width: 100%;
+}
+
+.logout {
+  margin: 15em auto;
+}
+
+.logout .modal-body {
+  height: 100px;
+  padding-top: 2.5em;
+}
+
+.logout button {
+  display: block;
+  margin: 0 auto;
+  min-width: 100px;
+}
+
+.exit-btn {
+  background-color: none;
+  border: none;
+  float: right;
+}
+
+table {
+  max-width: 70%;
+}
+
+table th {
+  width: 40%;
+}
+
+table td {
+  text-align: left;
+}
+
+table thead tr td {
+  min-width: 100%;
+}
+
+@media (max-width: 600px) {
+  table {
+    max-width: 100%;
+  }
+}
+
+body {
+  text-align: center;
+  min-height: 100vh;
+  /* will cover the 100% of viewport */
+  display: block;
+  position: relative;
+  padding-bottom: 150px;
+}
+
+label:not([name=isGoingGroup]) {
+  display: none;
+}
+
+header {
+  width: 100%;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  width: 100%;
+  font-size: calc(64px + 0.3vw);
+  font-weight: 800;
+  padding: 8px;
+}
+
+h2 {
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+h5 {
+  font-weight: 200;
+}
+
+footer {
+  height: 150px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background-color: black;
+}
+
+footer div {
+  padding-top: 2em;
+}
+/*# sourceMappingURL=App.css.map */
