@@ -11,7 +11,7 @@ const GuestList = (props) =>  {
         <td>{user.fullName}</td>
         <td>{user.email}</td>
         <td>{user.phoneNumber}</td>
-        <td>{user.isGoing.isGoingGroup === "true" ?  "Yes" : "No" }</td>
+        {user.isGoing === null || user.isGoing === undefined ? "Not Determined" : <td>{user.isGoing.isGoingGroup === "true" ?  "Yes" : "No" }</td>}
         <td>{console.log(user.guests)}{user.guests === null || user.guests === undefined ? "NOT SET" : user.guests}</td>
         </tr>
     })
