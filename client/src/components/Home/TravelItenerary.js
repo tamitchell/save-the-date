@@ -49,7 +49,7 @@ const TravelItenerary = () => (
           Lesner Inn <br />
           3319 Shore Dr. <br />
           Virginia Beach VA 23451
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3190.312109507275!2d-76.09020088510697!3d36.906801369392134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ba93537c34486f%3A0x435c96224e5ca01a!2sLesner+Inn+Catering+Club!5e0!3m2!1sen!2sus!4v1548996067242" width="300" height="200" frameborder="0" title="Google Map Location for party" style={style} allowfullscreen></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3190.312109507275!2d-76.09020088510697!3d36.906801369392134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ba93537c34486f%3A0x435c96224e5ca01a!2sLesner+Inn+Catering+Club!5e0!3m2!1sen!2sus!4v1548996067242" width="300" height="200" frameBorder="0" title="Google Map Location for party" style={style}></iframe>
         </td>
       </tr>
     </tbody>

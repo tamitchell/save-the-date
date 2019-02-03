@@ -38,6 +38,10 @@ const App = () => (
           path={routes.PASSWORD_FORGET}
           component={PasswordForgetPage}
         />
+        <Route
+          path={routes.PASSWORD_FORGET}
+          component={PasswordForgetPage}
+        />
         <Route path={routes.ADMIN} component={Admin} />
         <Route
           path={routes.ACCOUNT}

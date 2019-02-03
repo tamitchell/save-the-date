@@ -2,9 +2,7 @@ import React from "react";
 
 import { Table } from "reactstrap";
 
-const GuestList = (props) =>  {
-    console.log(props.guests)
-    
+const GuestList = (props) =>  {    
     let guestList = props.guests.map((user, i) => {
         return <tr key={i}>
         {i}
@@ -12,7 +10,7 @@ const GuestList = (props) =>  {
         <td>{user.email}</td>
         <td>{user.phoneNumber}</td>
         {user.isGoing === null || user.isGoing === undefined ? "Not Determined" : <td>{user.isGoing.isGoingGroup === "true" ?  "Yes" : "No" }</td>}
-        <td>{console.log(user.guests)}{user.guests === null || user.guests === undefined ? "NOT SET" : user.guests}</td>
+        <td>{user.guests === null || user.guests === undefined ? "NOT SET" : user.guests}</td>
         </tr>
     })
       return (

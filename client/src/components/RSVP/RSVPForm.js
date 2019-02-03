@@ -41,7 +41,6 @@ class RSVPForm extends Component {
   handleChange = input => event => {
     event.preventDefault();
     this.setState({ [input]: event.target.value });
-    console.log(this.state);
   };
 
   nextStep = event => {
@@ -62,7 +61,6 @@ class RSVPForm extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    console.log("click");
     const { fullName, email, phoneNumber, isGoing: isGoingGroup, guests } = this.state;
     const input = {
       fullName: fullName,

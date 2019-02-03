@@ -21,6 +21,7 @@ class Account extends React.Component {
   
   let userObj = firebase.auth().onAuthStateChanged(user => {
         if (user) {
+          console.log(user)
           firebase
             .database()
             .ref(`users/${user.uid}`)
@@ -52,7 +53,7 @@ class Account extends React.Component {
       <div>
         <p>You can make account changes with the following links below:
           <br/>
-          <Link to={routes.PASSWORD_FORGET}>Password Forget</Link> | <Link to={routes.PASSWORD_UPDATE}>Password Reset</Link> | <Link to={routes.DELETE_ACCT}>Delete Your Account</Link>
+          <Link to={routes.PASSWORD_FORGET}>Password Forget</Link> | <Link to={routes.DELETE_ACCT}>Delete Your Account</Link>
         </p>
       </div>
     </Container>

@@ -18,7 +18,7 @@ export class PersonalDetails extends Component {
           <h5>First things first, is this information correct? If not, please feel free to change it.</h5>
           <Input onChange={this.props.handleChange('fullName')} type="text" defaultValue={values.fullName} placeholder="Full Name" />
           <Input onChange={this.props.handleChange('email')} type="email" defaultValue={values.email} placeholder="Email" />
-          <Input onChange={this.props.handleChange('phoneNumber')} type="phoneNumber" defaultValue={values.phoneNumber} placeholder="Phone Number" />
+          <Input onChange={this.props.handleChange('phoneNumber')} type="tel" defaultValue={values.phoneNumber} placeholder="Phone Number" />
           <Button onClick={this.saveAndContine} className="right">Save and Contine</Button>
         </div>
     );

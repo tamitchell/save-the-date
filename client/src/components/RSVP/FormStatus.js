@@ -1,7 +1,6 @@
 import React from "react";
 
 export function FormStatus(props) {
-  console.log(props);
   if (props.status === true) {
     return (
       <div className="form-status">
