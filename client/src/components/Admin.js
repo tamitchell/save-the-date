@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { withFirebase } from '../firebase/index';
 import GuestList from "./GuestList";
+import firebase from "firebase";
 import { PulseLoader } from "react-spinners";
 import { Container } from "reactstrap";
 
@@ -15,23 +16,23 @@ class Admin extends Component {
       }
     
     componentDidMount() {
-        this.setState({ loading: true });
-    
-        this.props.firebase.users().on('value', snapshot => {
-            const usersObject = snapshot.val();
-
-            const usersList = Object.keys(usersObject).map(key => ({
-                ...usersObject[key],
-                uid: key,
-              }));
-
-          this.setState({
-            users: usersList,
-            loading: false,
-          });
+      console.log("hey")
+      this.setState({ loading: true });
+      this.props.firebase.users().on('value', users => {
+        const usersObject = users.val();
+  
+        const usersList = Object.keys(usersObject).map(key => ({
+          ...usersObject[key],
+          uid: key,
+        }));
+  
+        this.setState({
+          users: usersList,
+          loading: false,
         });
+      });
       }
-    
+
       componentWillUnmount() {
         this.props.firebase.users().off();
       }

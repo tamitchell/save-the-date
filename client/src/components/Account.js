@@ -18,14 +18,16 @@ class Account extends React.Component {
     }
   }
   getUserInfo = () => {
-  
+    console.log("hey!")
   let userObj = firebase.auth().onAuthStateChanged(user => {
         if (user) {
-          console.log(user)
           firebase
             .database()
             .ref(`users/${user.uid}`)
-            .once("value", snap => this.setState({ ...snap.val() }));
+            .once("value", snap => {
+              console.log(user.uid)
+              this.setState({ ...snap.val() })
+            })
         }
       });
       return userObj
@@ -47,7 +49,7 @@ class Account extends React.Component {
       <div>
         <p>{fullName}, here is your current status regarding the birthday party:</p>
         <p className={isGoing.isGoingGroup === "true" ? "GOING":"NOT-GOING"}>{isGoing.isGoingGroup === "true" ? "GOING":"NOT GOING"}</p>
-        <p>with {guests} {guests == 1 ? "guest" : "guests"} coming.</p>
+        <p>with {guests} {guests === 1 ? "guest" : "guests"} coming.</p>
         <p>If you would like to change your decision, visit this <Link to={routes.RSVP}>link</Link>.</p>
       </div>
       <div>

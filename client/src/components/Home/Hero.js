@@ -5,7 +5,7 @@ const Hero = () =>
   <Container className="hero-container" fluid={true}>
       <header>
       <h1>Save the Date!</h1>
-      <h3>Aunt Dana's 50th Birthday Party</h3>
+      <h3>Aunt Dana's 55th Birthday Party</h3>
       </header>
   </Container>
 
