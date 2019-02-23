@@ -11,7 +11,7 @@ export class RSVPDecision extends Component {
     const { values } = this.props;
     return (
       <FormGroup className="label-display">
-        <h5>Hi {values.fullName}, are you attending this trip?</h5>
+        <h5>Hi {values.fullName}, are you attending this party?</h5>
 
         <FormGroup>
           <Label htmlFor="radio-one">
