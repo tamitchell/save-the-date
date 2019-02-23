@@ -18,14 +18,12 @@ class Account extends React.Component {
     }
   }
   getUserInfo = () => {
-    console.log("hey!")
   let userObj = firebase.auth().onAuthStateChanged(user => {
         if (user) {
           firebase
             .database()
             .ref(`users/${user.uid}`)
             .once("value", snap => {
-              console.log(user.uid)
               this.setState({ ...snap.val() })
             })
         }

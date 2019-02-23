@@ -29,8 +29,6 @@ class PasswordResetFormBase extends Component {
 
   componentDidMount() {
     const email = firebase.auth().currentUser.email;
-    console.log(email)
-
   }
 
 
