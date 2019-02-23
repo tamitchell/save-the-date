@@ -38,13 +38,13 @@ export class RSVPDecision extends Component {
           </Label>
         </FormGroup>
         <FormGroup>
-          <Label for="guests">Number of guests (0 - 3) </Label>
+          <Label for="guests">Number of guests (0 - 2) </Label>
           <Input
             type="number"
             onChange={this.props.handleChange("guests")}
             defaultValue={values.guests}
             min="0"
-            max="3"
+            max="2"
             name="guests"
           />
         </FormGroup>
