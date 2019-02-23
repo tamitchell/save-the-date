@@ -53,10 +53,7 @@ class Account extends React.Component {
         <p>If you would like to change your decision, visit this <Link to={routes.RSVP}>link</Link>.</p>
       </div>
       <div>
-        <p>You can make account changes with the following links below:
-          <br/>
-          <Link to={routes.PASSWORD_FORGET}>Password Forget</Link> | <Link to={routes.DELETE_ACCT}>Delete Your Account</Link>
-        </p>
+        <p>If you would like to delete your account or reset your password, please contact the <a href="mailto:tamitchell14@gmail.com">system administrator</a></p>
       </div>
     </Container>
   

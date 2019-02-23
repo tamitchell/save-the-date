@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import {Route, Switch} from 'react-router-dom'
 import {SignInPage} from './SignIn';
 import { SignUpPage } from './SignUp/SignUp';
-import PasswordForgetPage from './PasswordForget';
+import PasswordResetPage from './PasswordReset';
 import HomePage from './Home/Home';
 import AccountPage from './Account';
 import Navigation from './Navigation';
@@ -36,11 +36,7 @@ const App = () => (
         />
         <Route
           path={routes.PASSWORD_FORGET}
-          component={PasswordForgetPage}
-        />
-        <Route
-          path={routes.PASSWORD_FORGET}
-          component={PasswordForgetPage}
+          component={PasswordResetPage}
         />
         <Route path={routes.ADMIN} component={Admin} />
         <Route

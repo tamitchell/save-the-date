@@ -4,25 +4,35 @@ import { Button, Input, Form } from "reactstrap";
 import { withFirebase } from "../firebase/index";
 import * as ROUTES from "./constants/Routes";
 import { FormStatus } from "./RSVP/FormStatus";
+import firebase from "firebase"
+import CustomizedModal from "./CustomizedModal";
 
-const PasswordForgetPage = () => (
+const PasswordResetPage = () => (
   <div className="acct-form-container">
     <h2>Reset Your Password</h2>
-    <PasswordForgetForm />
+    <PasswordResetForm />
   </div>
 );
 
 const INITIAL_STATE = {
   email: "",
+  password: "",
   error: null
 };
 
-class PasswordForgetFormBase extends Component {
+class PasswordResetFormBase extends Component {
   constructor(props) {
     super(props);
 
     this.state = { status: false, formSubmitted: false, ...INITIAL_STATE };
   }
+
+  componentDidMount() {
+    const email = firebase.auth().currentUser.email;
+    console.log(email)
+
+  }
+
 
   onSubmit = event => {
     const { email } = this.state;
@@ -74,14 +84,14 @@ class PasswordForgetFormBase extends Component {
   }
 }
 
-const PasswordForgetLink = () => (
+const PasswordResetLink = () => (
   <p>
     <Link to={ROUTES.PASSWORD_FORGET}>Forgot Password?</Link>
   </p>
 );
 
-export default PasswordForgetPage;
+export default PasswordResetPage;
 
-const PasswordForgetForm = withFirebase(PasswordForgetFormBase);
+const PasswordResetForm = withFirebase(PasswordResetFormBase);
 
-export { PasswordForgetForm, PasswordForgetLink };
+export { PasswordResetForm, PasswordResetLink };

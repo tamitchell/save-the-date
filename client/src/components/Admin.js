@@ -16,7 +16,6 @@ class Admin extends Component {
       }
     
     componentDidMount() {
-      console.log("hey")
       this.setState({ loading: true });
       this.props.firebase.users().on('value', users => {
         const usersObject = users.val();
