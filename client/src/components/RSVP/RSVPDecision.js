@@ -10,7 +10,6 @@ export class RSVPDecision extends Component {
 
   render() {
     const { values } = this.props;
-    console.log(values)
     return (
       <FormGroup className="label-display">
         <h5>Hi {values.fullName}, are you attending this party?</h5>
