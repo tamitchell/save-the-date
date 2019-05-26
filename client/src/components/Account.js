@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as routes from "./constants/Routes"
-import firebase from "firebase";
+import firebase from "firebase/";
 import { Container } from "reactstrap";
 import { AuthUserContext, withAuthorization } from './Session';
 

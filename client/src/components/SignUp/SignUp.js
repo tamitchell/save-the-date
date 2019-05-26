@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { compose } from "recompose";
-import { withFirebase } from "../firebase/index";
+import { withFirebase } from "../../firebase/index";
 import { PulseLoader } from "react-spinners";
 import * as routes from "../constants/Routes";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
