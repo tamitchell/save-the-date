@@ -5,7 +5,7 @@ import { Table } from "reactstrap";
 const GuestList = (props) =>  {    
     let guestList = props.guests.map((user, i) => {
         return <tr key={i}>
-        {i}
+        {i+1}
         <td>{user.fullName}</td>
         <td>{user.email}</td>
         <td>{user.phoneNumber}</td>
