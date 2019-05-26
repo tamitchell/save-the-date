@@ -49,9 +49,8 @@ class SignInFormBase extends Component {
     const { history } = this.props;
     
     this.setState({ loading: true }, async () => {
-      this.props.firebase
-      .doSignInWithEmailAndPassword(email, passwordOne)
-      .then(authUser => {
+      this.props.firebase.doSignInWithEmailAndPassword(email, passwordOne)
+      .then(() => {
         this.setState({ 
           modal: false,
           ...INITIAL_STATE });
