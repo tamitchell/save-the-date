@@ -36,7 +36,7 @@ import {
               {this.props.modalFooterAction}
               <Button color="secondary" onClick={this.modalToggle}>
               Cancel
-            </Button>}
+            </Button>
             </ModalFooter>
           </Modal>
         </Fragment>
