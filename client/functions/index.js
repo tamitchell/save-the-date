@@ -62,8 +62,13 @@ const getUsersFromDatabase = (res) => {
       }
       const id = req.query.id
       admin.database().ref(`/users/${id}`).remove()
-      getUsersFromDatabase(res)
-    })
+    //   getUsersFromDatabase(res)
+    res.send('Guest deleted successfully')
+    }), (error) => {
+        res.status(error.code).json({
+          message: `Something went wrong. ${error.message}`
+        })
+      }
   })
 
 //   exports.getSingleUser = functions.https.onRequest((req, res) => {
