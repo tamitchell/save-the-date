@@ -10,7 +10,7 @@ class RSVPForm extends Component {
       step: 1,
       fullName: "",
       email: "",
-      isGoing: {},
+      isGoing: false,
       guests: 0,
       phoneNumber: ""
     };
@@ -31,11 +31,8 @@ class RSVPForm extends Component {
     this.getUserInfo();
   }
 
-  handleRadioChange = event => {
-    event.preventDefault();
-    const { isGoing } = this.state;
-    isGoing[event.target.name] = event.target.value;
-    this.setState({ isGoing: isGoing });
+  handleToggleChange = (event) => {
+    this.setState({ isGoing: event });
   };
 
   handleChange = input => event => {
@@ -61,12 +58,12 @@ class RSVPForm extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    const { fullName, email, phoneNumber, isGoing: isGoingGroup, guests } = this.state;
+    const { fullName, email, phoneNumber, isGoing, guests } = this.state;
     const input = {
       fullName: fullName,
       email: email,
       phoneNumber: phoneNumber,
-      isGoing: isGoingGroup,
+      isGoing: isGoing,
       guests: guests
     };
     firebase.auth().onAuthStateChanged(user => {
@@ -80,8 +77,8 @@ class RSVPForm extends Component {
 
   render() {
     const { step } = this.state;
-    const { fullName, email, phoneNumber, guests } = this.state;
-    const values = { fullName, email, phoneNumber, guests };
+    const { fullName, email, phoneNumber, guests, isGoing } = this.state;
+    const values = { fullName, email, phoneNumber, guests, isGoing };
     switch (step) {
       case 1:
         return (
@@ -96,8 +93,8 @@ class RSVPForm extends Component {
           <RSVPDecision
             nextStep={this.nextStep}
             prevStep={this.prevStep}
+            handleToggleChange={this.handleToggleChange}
             handleChange={this.handleChange}
-            handleRadioChange={this.handleRadioChange}
             onSubmit={this.onSubmit}
             values={values}
           />

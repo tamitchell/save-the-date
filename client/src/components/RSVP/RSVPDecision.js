@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, FormGroup, Input, Label } from "reactstrap";
+import Switch from "react-switch"
 
 export class RSVPDecision extends Component {
   saveAndContine = e => {
@@ -9,33 +10,50 @@ export class RSVPDecision extends Component {
 
   render() {
     const { values } = this.props;
+    console.log(values)
     return (
       <FormGroup className="label-display">
         <h5>Hi {values.fullName}, are you attending this party?</h5>
-
         <FormGroup>
-          <Label htmlFor="radio-one">
-            I'm going
-            <Input
-              type="radio"
-              onChange={this.props.handleRadioChange}
+    
+            <Switch
+              onChange={this.props.handleToggleChange}
               checked={values.isGoing}
-              name="isGoingGroup"
-              className="form-radio"
-              value={true}
-            />
-          </Label>
-          <Label htmlFor="radio-one">
-            I'm Not Going
-            <Input
-              type="radio"
-              onChange={this.props.handleRadioChange}
-              checked={values.isGoing}
-              name="isGoingGroup"
-              className="form-radio"
-              value={false}
-            />
-          </Label>
+              uncheckedIcon={
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "left",
+                    alignItems: "center",
+                    height: "100%",
+                    width:"150px",
+                    fontSize: 15,
+                    color: "white",
+                    marginLeft: -50
+                      }}
+                >
+                  I'm Not Going
+                </div>
+              }
+              checkedIcon={<div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%",
+                  width:"150px",
+                  fontSize: 15,
+                  color: "white",
+                  paddingRight: 10
+                }}
+              >
+                I'm Going
+              </div>
+            }
+              width={300}
+              height={50}
+              aria-label="Toggle for whether or not you are attending the party. The default is automatically set to 'not going'."
+              />
         </FormGroup>
         <FormGroup>
           <Label for="guests">Number of guests (0 - 2) </Label>
