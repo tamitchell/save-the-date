@@ -11,13 +11,13 @@ import {
     constructor(props) {
       super(props);
       this.state = {
-        modal: false
+        modal: false,
+        loading: false
       };
   
-      this.toggle = this.toggle.bind(this);
     }
   
-    toggle() {
+    toggle = () => {
       this.setState({
         modal: !this.state.modal
       });
@@ -34,7 +34,7 @@ import {
             </ModalBody>
             <ModalFooter>
               {this.props.modalFooterAction}
-              <Button color="secondary" onClick={this.modalToggle}>
+              <Button color="secondary" onClick={this.toggle}>
               Cancel
             </Button>
             </ModalFooter>

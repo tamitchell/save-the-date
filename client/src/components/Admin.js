@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import { withFirebase } from '../firebase/index';
 import GuestList from "./GuestList";
-import firebase from "firebase";
 import { PulseLoader } from "react-spinners";
 import { Container } from "reactstrap";
 
@@ -12,6 +11,7 @@ class Admin extends Component {
         this.state = {
           loading: false,
           users: [],
+          notification: ""
         };
       }
     
@@ -32,13 +32,21 @@ class Admin extends Component {
       });
       }
 
+      isLoading = () => {
+        this.setState({loading: true})
+      }
+
+      setNotification = (msg) => {
+        this.setState({notification: msg})
+      }
+
       componentWillUnmount() {
         this.props.firebase.users().off();
       }
 
       render() {
 
-        const { users, loading } = this.state;
+        const { users, loading, notification } = this.state;
 
 
         return (
@@ -50,7 +58,7 @@ class Admin extends Component {
                   size={10}
                   color={"#EF522A"}
                   loading={this.state.loading}
-                /> : <GuestList guests={users} />}
+                /> : <GuestList notification={notification} setNotification={this.setNotification} guests={users} />}
           </Container>
         );
       }

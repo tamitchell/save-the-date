@@ -3,14 +3,15 @@ import { FaTimes } from "react-icons/fa";
 import { Table } from "reactstrap";
 import CustomizedModal from "../components/CustomizedModal";
 import { DeleteUser } from "./DeleteUser";
+import { WithLoading } from "./WithLoadingHOC";
 
 
 
-const GuestList = (props) =>  {    
+const GuestList = (props) =>  {
+  console.log(props)    
   let guestList = props.guests.map((user, i) => {
-    console.log(user.uid)
-    const deleteMsg = `Are you sure you want to delete ${user.fullName} from the list? This action cannot be undone.`
-    const confirmDelete = <CustomizedModal buttonLabel={<FaTimes />} modalBody={deleteMsg} modalFooterAction={<DeleteUser userID={user.uid}/>}/>
+    const deleteMsg = `Are you sure you want to remove ${user.fullName} from the list? This action cannot be undone.`
+    const confirmDelete = <CustomizedModal buttonLabel={<FaTimes />} modalBody={props.notification} modalFooterAction={<DeleteUser userName={user.fullName} notification={props.notification} deleteMsg={deleteMsg} setNotification={props.setNotification} userID={user.uid}/>}/>
         return <tr key={i}>
         <td>{i+1}</td>
         <td>{user.fullName}</td>

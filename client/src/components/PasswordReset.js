@@ -5,7 +5,6 @@ import { withFirebase } from "../firebase/index";
 import * as ROUTES from "./constants/Routes";
 import { FormStatus } from "./RSVP/FormStatus";
 import firebase from "firebase"
-import CustomizedModal from "./CustomizedModal";
 
 const PasswordResetPage = () => (
   <div className="acct-form-container">
