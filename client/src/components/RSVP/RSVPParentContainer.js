@@ -27,6 +27,7 @@ class RSVPParentContainer extends Component {
 
   render() {
     const {status, formSubmitted} = this.state
+    const endDate = "June 5th 2019 at 12:00PM (EST)"
     return (
         <div className="acct-form-container">
           {formSubmitted === true ? (
@@ -36,6 +37,11 @@ class RSVPParentContainer extends Component {
               changeStatus={this.changeStatus}
             />
           )}
+          <span className="attention">
+            <p>ATTENTION:</p>
+            <p>The ability to change details related to RSVP will be disabled on {endDate}. Please ensure you have made your final decision before then.</p>
+          </span>
+
         </div>
       );
   }
