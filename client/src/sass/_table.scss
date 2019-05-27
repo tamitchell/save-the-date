@@ -17,3 +17,24 @@ table {
     max-width: 100%;
   }
 }
+
+.isGoing-Yes {
+  padding-top: 10px;
+  border: 2px solid green;
+  text-align: center;
+  font-weight: 300;
+}
+
+.isGoing-No {
+  padding-top: 10px;
+  border: 2px solid red;
+  text-align: center;
+  font-weight: 300;
+}
+
+.isGoing-Unknown {
+  padding-top: 10px;
+  border: 2px solid yellow;
+  text-align: center;
+  font-style: bold;
+}
