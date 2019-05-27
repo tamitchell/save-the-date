@@ -8,7 +8,7 @@ import AccountPage from './Account';
 import Navigation from './Navigation';
 import RSVPFORM from "./RSVP/RSVPParentContainer";
 import Footer from './Footer';
-import Admin from "./Admin";
+import Admin from "./Admin/Admin";
 import * as routes from './constants/Routes';
 import NotFound from './404Error'
 import '../sass/App.scss'

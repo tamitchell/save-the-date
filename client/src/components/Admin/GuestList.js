@@ -1,8 +1,8 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa";
 import { Table } from "reactstrap";
-import CustomizedModal from "../components/CustomizedModal";
-import { DeleteUser } from "./DeleteUser";
+import CustomizedModal from "../CustomizedModal";
+import { DeleteUser } from "../DeleteUser";
 
 
 

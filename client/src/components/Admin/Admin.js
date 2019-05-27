@@ -1,8 +1,9 @@
 import React, {Component} from "react";
-import { withFirebase } from '../firebase/index';
+import { withFirebase } from '../../firebase/index';
 import GuestList from "./GuestList";
 import { PulseLoader } from "react-spinners";
 import { Container } from "reactstrap";
+import AdminOptionsContainer from "./AdminOptionsContainer";
 
 class Admin extends Component {
       constructor(props) {
@@ -32,10 +33,6 @@ class Admin extends Component {
       });
       }
 
-      isLoading = () => {
-        this.setState({loading: true})
-      }
-
       setNotification = (msg) => {
         this.setState({notification: msg})
       }
@@ -53,6 +50,7 @@ class Admin extends Component {
           <Container className="acct-form-container" fluid={true}>
             <h2>Guest List</h2>
             <p>Here is an exhaustive list of those attending. As an administrative user, you can remove or add guests here.</p>
+            <AdminOptionsContainer/>
             { loading ?  <PulseLoader
                   sizeUnit={"px"}
                   size={10}
