@@ -8,7 +8,6 @@ import firebase from "firebase"
 
 const PasswordResetPage = () => (
   <div className="acct-form-container">
-    <h2>Reset Your Password</h2>
     <PasswordResetForm />
   </div>
 );
@@ -27,7 +26,7 @@ class PasswordResetFormBase extends Component {
   }
 
   componentDidMount() {
-    const email = firebase.auth().currentUser.email;
+    // const email = firebase.auth().currentUser.email;
   }
 
 
@@ -61,6 +60,7 @@ class PasswordResetFormBase extends Component {
         <FormStatus status={status} />
       ) : (
       <Form className="acct-form-container" onSubmit={this.onSubmit}>
+            <h2>Reset Your Password</h2>
         <p>In order to reset your password, we need to verify your email.</p>
         <Input
           name="email"

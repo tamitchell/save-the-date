@@ -11,9 +11,8 @@ import {
     constructor(props) {
       super(props);
       this.state = {
-        modal: false,
-        loading: false
-      };
+        modal: false
+            };
   
     }
   
